@@ -1,0 +1,18 @@
+name: AncientNightmare
+prefix: AncientNightmare
+version: '${project.version}'
+main: io.github.wall69.ancientnightmare.Main
+api-version: 1.19
+authors: [ Wall_, Toast_69_69 ]
+description: A minigame inspired by FNAF.
+softdepend: [ SkinsRestorer, PlaceholderAPI, Multiverse-Core ]
+commands:
+  ancientnightmare:
+    aliases: [ an ]
+permissions:
+  ancientnightmare.player:
+    default: true
+  ancientnightmare.admin:
+    default: op
+    children:
+      ancientnightmare.player: true

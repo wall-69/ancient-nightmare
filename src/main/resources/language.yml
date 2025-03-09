@@ -1,0 +1,189 @@
+prefix: '&8[AncientNightmare]'
+
+arena:
+  lobby:
+    play-warden: '&7You will play as &8WARDEN&7.'
+    play-security: '&7You will play as &9SECURITY&7.'
+    cant-play-warden: '&7Someone has already selected to play as &8WARDEN&7.'
+    cant-play-security: '&7Someone has already selected to play as &9SECURITY&7.'
+  countdown:
+    not-enough-players: '&7There is not enough players. Countdown has stopped.'
+    # {countdown} will be replaced with the remaining amount of seconds of the countdown
+    syntax: '&7The game will start in {countdown} seconds.'
+  game:
+    not-enough-players: '&7The game has ended as too many players left.'
+    start: '&7The game has started! Good luck & have fun.'
+    warden-start-title: "&fYou are playing as &8WARDEN&f."
+    warden-objective: '&7You are playing as &8WARDEN&7. Your objective is to kill &9SECURITY&7.'
+    warden-win-chat: '&7Game ended. &8Warden &7has won.'
+    warden-win-title: '&fGame ended.'
+    warden-win-subtitle: '&8Warden &fhas won.'
+    security-start-title: "&fYou are playing as &9SECURITY&f."
+    security-objective: '&7You are playing as &9SECURITY&7. Your objective is to not get killed by &8WARDEN&7. You can either try to escape or hide inside.'
+    security-win-chat: '&7Game ended. &9Security &7has won.'
+    security-win-title: '&fGame ended.'
+    security-win-subtitle: '&9Security &fhas won.'
+    security-death: '&8Warden &7has killed the &9Security&7!'
+    # {battery} will be replaced with the remaining battery in the game
+    battery-boss-bar: '&lBattery: {battery}%'
+    # {timer} will be replaced with the remaining amount of seconds of the timer
+    timer-syntax: '&7The game will end in {timer} seconds.'
+    generator-full: '&7The generator is fully charged!'
+    generator-no-battery: '&7You need a battery to recharge the generator! Go find it!'
+    # This is first part of a play again message, this part is not clickable
+    play-again: '&7Want to play again? Click here:'
+    # This is second part of a play again message, this part is clickable and if clicked, player will be teleported to the arena he was just in
+    play-again-clickable: '&8[PLAY AGAIN]'
+
+# {prefix} will be replaced with the prefix of the plugin specified in prefix field
+# {arena} will be replaced with the arena name
+# {arena_state} will be replaced with the arena state
+# {players} will be replaced with the amount of players in the arena
+# {countdown} will be replaced with the remaining amount of seconds of the countdown
+lobby-scoreboard:
+  title: '{prefix}'
+  # Only 16 lines can be seen on a scoreboard, so having more than 16 lines in this field may break the scoreboard.
+  # Lines CAN NOT be repeated! Each line MUST BE unique!
+  lines:
+    - ''
+    - '&8Players: &7{players}'
+    - ''
+    - '&8Arena: &7{arena}'
+    - '&8Currently: &7{arena_state}'
+    - ''
+    - '&7www.server.com'
+
+arena-state:
+  waiting: 'WAITING'
+  countdown: 'COUNTDOWN'
+  playing: 'PLAYING'
+  ending: 'ENDING'
+
+statistic:
+  wins: 'WINS'
+  losses: 'LOSSES'
+  games-played: 'GAMES PLAYED'
+  warden-wins: 'WARDEN WINS'
+  security-wins: 'SECURITY WINS'
+
+queue:
+  # {position} will be replaced with the current position of the player in queue
+  current-position: '&8Your current position: &7{position}'
+
+commands:
+  player:
+    no-permission: '&7You do not have permission to use this command!'
+    no-args:
+      - '&7COMMANDS:'
+      - '&7/an join'
+      - '&7/an leave'
+      - '&7/an stats'
+      - '&7/an queue'
+      - '&7/an admin'
+    # {arena} will be replaced with the name of the arena
+    join: '&7You joined to arena {arena}!'
+    join-invalid-usage: '&7Usage: /an join [ArenaName]'
+    join-invalid-specified: '&7You specified an invalid arena!'
+    join-global-lobby-not-set: '&7The global lobby is not set, please contact server administrator!'
+    join-already-joined: '&7You are already in an arena!'
+    join-arena-full: '&7This arena is full!'
+    join-arena-playing: '&7This arena is in game!'
+    join-arena-invalid: '&7This arena is invalid. Please contact the server administrator!'
+    leave: '&7You left the arena!'
+    leave-invalid-usage: '&7Usage: /an leave'
+    leave-not-joined: '&7You are not in an arena!'
+    # {name} will be replaced with the name of player
+    stats-header: '&8{name}s &7statistics:'
+    # {statisticName} will be replaced with the name of the statistic,
+    # {statistic} will be replaced with the number/amount of the statistic
+    stats-syntax: "&7{statisticName}: &8{statistic}"
+    stats-invalid-usage: '&7Usage: /an stats [Player]'
+    queue-join: '&7You were added to the queue!'
+    queue-leave: '&7You left the queue!'
+    queue-already-queued: '&7You are already in queue!'
+  admin:
+    no-permission: '&7You do not have permission to use this command!'
+
+join-gui:
+  title: '&8Join to arena'
+  join-item:
+    # {arena} will be replaced with the arena name
+    name: '&7{arena}'
+    # {arena_state} will be replaced with the arena state
+    # {players} will be replaced with the amount of players in the arena
+    lore:
+      - '&7- Current state: &9{arena_state}'
+      - '&7- Players: &9{players}'
+  go-left-item:
+    name: '&9Left'
+  go-right-item:
+    name: '&9Right'
+
+items:
+  lobby:
+    play-security: '&7[Right Click] &9&lPlay as SECURITY.'
+    play-warden: '&7[Right Click] &8&lPlay as WARDEN.'
+    leave: '&7&lLeave'
+    help-book:
+      name: '&7&lHow to play?'
+      # {apostrophe} will be replaced with normal apostrophe (')
+      # {nl} will move the next text on to a new line
+      pages:
+        - 'Ancient Nightmare is a Minecraft minigame inspired by Five Nights at Freddy{apostrophe}s. {nl}{nl}In Ancient Nightmare you can either play as &9SECURITY &0or &8WARDEN&0.'
+        - '&8WARDEN&0: {nl}Your objective as &8WARDEN &0is to kill the &9SECURITY&0. But as you may know, &8Wardens &0are blind, that{apostrophe}s why you will have to use sounds in order to get near the &9SECURITY&0. This will not be that big of a problem, because you are a special &8WARDEN &0with many abilities!'
+        - '&8WARDEN Abilities&0: {nl}&8Sonic Attack&0: Hitting &9SECURITY &0with this attack will slow them down and make them confused. {nl}{nl}&8Stealth Ability&0: Using this ability will make you less visible and will confuse the &9SECURITY &0by making sounds all around them.'
+        - '&8Rage Ability&0: Makes you really angry... therefore you will be faster. {nl}{nl}&8Vents&0: As &8WARDEN &0crawling in vents is fast!'
+        - '&9SECURITY&0: {nl}Playing as &9SECURITY &0has 1 objective: survive. You can either try to escape running to the exit or hide in your office with the help of iron doors. Be sure to not be loud as you will get highlighted and the &8WARDEN &0will see you, also sprinting makes you very hungry.'
+        - '&9SECURITY Abilities&0: {nl}&9Apples&0: You can eat them, if you are hungry! {nl}{nl}&9Egg&0: You can throw it to try to confuse the &8WARDEN&0 by spawning a decoy. {nl}{nl}&9Baton&0: With this item you can attack the &8WARDEN &0and stun him.'
+        - '&9Other tips&0: {nl}&9Iron doors & trapdoors&0: You can close/open them using RIGHT CLICK. {nl}{nl}&9Battery&0: Battery can be found in supply barrels somewhere in the map... {nl}{nl}&9Exit&0: Escaping through the exit is the second way of winning, but'
+        - 'it is much more dangerous. {nl}{nl}&9Generator&0: In order to close iron doors & trapdoors, your generator needs to be charged. If the battery of generator gets to &90%&0, all doors will open.'
+  game:
+    item-on-cooldown: '&7This item is on cooldown!'
+    # {item} will be replaced with the display name of the item
+    item-no-longer-on-cooldown: '{item} &7is no longer on cooldown!'
+    security:
+      apple:
+        name: '&cApple'
+        lore:
+          - '&7Apple a day keeps the &8WARDEN &7away!'
+      fake-sound:
+        name: '&3Egg'
+        # {cooldown} will be replaced with the item's cooldown length
+        lore:
+          - '&7Right click to use this ability.'
+          - '&7Has a {cooldown} second cooldown.'
+      baton:
+        name: '&8Baton'
+        # {cooldown} will be replaced with the item's cooldown length
+        lore:
+          - '&7Use this to stun the &8WARDEN&7.'
+          - '&7Has a {cooldown} second cooldown.'
+      battery:
+        name: '&fBattery'
+        lore:
+          - '&7Used for recharging the generator.'
+    warden:
+      compass:
+        name: '&8Wayfinder'
+        lore:
+          - '&7Right click to use this item.'
+          - '&7Points to the location of &9Security &7spawn.'
+        use: '&7The compass is pointing to the &9Security &7spawn!'
+      sonic-attack:
+        name: '&7Sonic attack'
+        # {cooldown} will be replaced with the item's cooldown length
+        lore:
+          - '&7Right click to use this attack.'
+          - '&7Has a {cooldown} second cooldown.'
+      stealth:
+        name: '&fStealth ability'
+        # {cooldown} will be replaced with the item's cooldown length
+        lore:
+          - '&7Right click to use this ability.'
+          - '&7Has a {cooldown} second cooldown.'
+      rage:
+        name: '&cRage ability'
+        # {cooldown} will be replaced with the item's cooldown length
+        lore:
+          - '&7Right click to use this ability.'
+          - '&7Has a {cooldown} second cooldown.'

@@ -1,0 +1,101 @@
+# Ancient Nightmare
+# Discord (Support): https://discord.gg/UWnCW5gN5Z
+
+# When set on true, plugin will be in proxy mode (useful for Bungee, etc.), joining to arena is done through joining to the server, only one arena per server
+proxy: false
+# When set on true, it will be checked if you are using the latest version of AncientNightmare (otherwise a message will be sent in console and on join to players with ancientnightmare.admin permission)
+check-updates: true
+# Sets skins to players when the game starts (Warning: you need SkinsRestorer downloaded for this)
+use-skins: true
+# Disables mob spawning in created arenas when set on true (Warning: can lag server with bigger/many arenas, better solution is having arenas in separate world and using /gamerule doMobSpawning false)
+disable-mob-spawn: false
+
+arena:
+  # When enabled, players can choose in the lobby the role which they want to play as. When disabled, the roles will be randomly selected.
+  allow-role-select: true
+  # The arena countdown when both players are in lobby
+  countdown-seconds: 10
+  # The amount of % which will be added (=recharged) per door in the arena when Security uses battery
+  generator-recharge-per-door: 10
+  # The start commands when the game starts
+  start-commands:
+    # Enable or disable the start commands
+    enabled: false
+    # The commands that will be executed when the game starts
+    # %warden% will be replaced with the name of the player playing as Warden
+    # %security% will be replaced with the name of the player playing as Security
+    commands:
+      - tell %warden% Good luck!
+      - tell %security% Have fun!
+  # The rewards after the game ends
+  rewards:
+    # Enable or disable the rewards
+    enabled: false
+    # The commands that will be executed after the game ends
+    # %winner% will be replaced with the name of the winner of the game
+    # %loser% wll be replaced with the name of the loser of the game
+    commands:
+      - give %winner% diamond 5
+  # The list of special blocks and their material type, this can be changed ingame using /an admin blocks set
+  blocks:
+    generator: COMMAND_BLOCK
+    battery-supply: BARREL
+  # When enabled a message asking the player if he wants to play again in the same arena will be sent to him
+  play-again-message: true
+  # When enabled a lobby scoreboard will be set for players, this scoreboard can be customised in language.yml in lobby-scoreboard
+  lobby-scoreboard: true
+
+warden:
+  # The "vent speed" of Warden (Don't understand? This image may help: https://imgur.com/ar07mx3)
+  vent-speed: 0.25
+  abilities:
+    sonic-attack:
+      # If set to false, the Warden won't get the Sonic Attack ability item at start of the game
+      enabled: true
+      # The cooldown of Sonic Attack ability (in seconds)
+      cooldown: 25
+      # The max range of the Sonic Attack ability
+      max-range: 35
+    stealth:
+      # If set to false, the Warden won't get the Stealth ability item at start of the game
+      enabled: true
+      # The cooldown of Stealth ability (in seconds)
+      cooldown: 30
+    rage:
+      # If set to false, the Warden won't get the Rage ability item at start of the game
+      enabled: true
+      # The cooldown of Rage ability (in seconds)
+      cooldown: 60
+    compass:
+      # If set to false, the Warden won't get the Compass item at start of the game
+      enabled: true
+  # Custom skin which can be used with SkinsRestorer (to change use /an admin skins warden <default/URL>)
+  custom-skin:
+    value: "ewogICJ0aW1lc3RhbXAiIDogMTYxNjM5NTUwMzk0MSwKICAicHJvZmlsZUlkIiA6ICJiNzQ3OWJhZTI5YzQ0YjIzYmE1NjI4MzM3OGYwZTNjNiIsCiAgInByb2ZpbGVOYW1lIiA6ICJTeWxlZXgiLAogICJzaWduYXR1cmVSZXF1aXJlZCIgOiB0cnVlLAogICJ0ZXh0dXJlcyIgOiB7CiAgICAiU0tJTiIgOiB7CiAgICAgICJ1cmwiIDogImh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTdmOGZmMThhZTVmMmFhMzc0NTdmYzU4MzAzMzAwYTc1Mzk3MGM0NDg4Y2MwYWQ2ZTUyZDBjMDMwODY1MGUzIgogICAgfQogIH0KfQ=="
+    signature: "xla/pXTv1Tuw5ISXiwBlxt9lQ4T2hCfXgBHTNdkOy52AP+KN5tEiKQ3eEVYTexSRv0OqggzxmtiiaPC508Kxi39Grmr8WQiimZZ0210+lqEGStrU++NbDnKh/+OWY73JiUQdQDBY4AmxLAq1WjqanWiLFIWfXYMwRvcbzgqAn5dIeAHEKfTzzi7kdygYZeOp+WohENmvExMr+wFmlm2lUylXNnR65LFvLlUs/sfHEqhiaol2HcVxwVg2B7pzqeFHTUgFwFEROzpvYlQLNZv/NSq2a6vA4xCk7pGlAUvDjSCI9XzQLFrRaBzqfhWheuOHaDkhpbBtu2E7m49zIRWTR4scMseZyuDc9jghAHpmL/fii4oQCBKBtW5g29NLQUSCHP2n817MbNhRki+q+M/TzqOoQIX6kaVu7WKQO+mUf04CtUkGVBwK7AexXwj8xHMcbKiihCK3FBwRvH3ZRbHgYIPl3HPzp4j2XS6rHoU2dobMoOP+6/UBo4Z6L9X1RdYuDJHYQwithv3PHbbx2qG0jfumHyKg2YxJyW10ShMqYAF9Lb298DKNvpWhKGiYSTigPFBODf4AixJPj/LH2Vb+oZHRtvQEK6QqZ8cK4lVXqYULAnmEsKnPEY2ZswdgjTMyXDpSjpXxwDpst3LDtvYTDZW1QlkRfCBzh48KOEwGmtk="
+security:
+  abilities:
+    apple:
+      # If set to false, Security won't get the Apple item at start of the game
+      enabled: true
+      # The amount of Apples Security will be given at the start of the game
+      amount: 2
+    fake-sound:
+      # If set to false, Security won't get the Fake Sound ability item at start of the game
+      enabled: true
+      # The cooldown of Fake Sound ability (in seconds)
+      cooldown: 40
+    baton:
+      # If set to false, Security won't get the Baton item at start of the game
+      enabled: true
+      # The cooldown of Baton item (in seconds)
+      cooldown: 25
+  # Custom skins which can be used with SkinsRestorer (to change use /an admin skins security <male/female> <default/URL>)
+  custom-skin:
+    male:
+      value: "eyJ0aW1lc3RhbXAiOjE1ODcwNTE5Nzk1MDksInByb2ZpbGVJZCI6ImQ2MGYzNDczNmExMjQ3YTI5YjgyY2M3MTViMDA0OGRiIiwicHJvZmlsZU5hbWUiOiJCSl9EYW5pZWwiLCJzaWduYXR1cmVSZXF1aXJlZCI6dHJ1ZSwidGV4dHVyZXMiOnsiU0tJTiI6eyJ1cmwiOiJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlLzQ4NTcyZjExMDEyNWI1YmM3MDc4NmQzNzhhYWFhY2FiYjgwYzJlZDAwOTEyNWE4MmU5Y2FmYmEwMmRiODJmMjgifX19"
+      signature: "MJsmm3wbsQspbDSI/iJjEqGnVnUrtLZuaWH5iXXcusW5mAAxbgl2VqZxS2EOu8NcH2giwxDVWYCx1j7VmTFvfK7CavsKtzYgCwsMmoVGR/lswXmK+3KcnOn9+YQ82y4FSb2PbjitKdh22YZ5RNNbTVyFrIHhXei/+BUGgx28KmVcJRXogsAvzq4COAFYlsa07+NtDJPr5lPKz+KzW90GSJLri4qtZkFG3BxCMZolnNwdOnop56mzdyx7hO4jgmCdXSJHlMnv1sOSTlXpfOSqDIxktSOGDLHmkkJNl1do8MbfbZaTlAJfAAqQYmQ7411Xz2jFag0LVFzVYtXqtFTr8m4Dh+kZ7ayP5qcUcXzj/C7r1aTvUIMCnrY5JmWwGdC2F1dgIkUhLY5dXRIpx+EMdi3JIiKIih2/BO3JfiNOLmk0BASrqXgagZuE5EVZaODwCpJDdnYfLdkM+dgdHQSLD+/7LNZsbeqCTNbw/Z09nqpyCQsiziqB8yUxAeQXT7iF1FbpSsbPtm/FJmqwty4u5XjlB59x8uhjvulVmzDt47qB59TpOqhc76C9yGqQnDObBhSohgDWQJ1T8k+1iNvLBauv+olBqBcKct13x/NGsJaWSoIVMw39EOxI1uO6c/5AejjWWi2wUaMoSGQ6zTZFyQQKFadWt/k7B5hsfj9pftk="
+    female:
+      value: "ewogICJ0aW1lc3RhbXAiIDogMTYwMzU4NDE2MDI4OSwKICAicHJvZmlsZUlkIiA6ICI2MTI4MTA4MjU5M2Q0OGQ2OWIzMmI3YjlkMzIxMGUxMiIsCiAgInByb2ZpbGVOYW1lIiA6ICJPbGROaWNrVGhlUmVhcGVyIiwKICAic2lnbmF0dXJlUmVxdWlyZWQiIDogdHJ1ZSwKICAidGV4dHVyZXMiIDogewogICAgIlNLSU4iIDogewogICAgICAidXJsIiA6ICJodHRwOi8vdGV4dHVyZXMubWluZWNyYWZ0Lm5ldC90ZXh0dXJlL2M3M2IyMDgwMTIyZmFhNzhjNWRjMTkxZDdmZWU5OWZiM2UwYjg3ODg0MTYzNWU1NTM2ZmQ0MDUxZGNiODRjYTgiCiAgICB9CiAgfQp9"
+      signature: "rr35iIrqjCzRbwv+vdRhf2RF2GI7DLaF5q8AcQzESalplT8gEnR667/HQR5ge18/DGbtv63QRr6DM8GuYQwgdz4wHdyfdLrHebzlAZ6BjNJj9rcljksxcY750UiG+s80cbVTOWXNiVW6KqMlaqbADa/B28V5BXs4LjIoxcmCvqm9EL5ywB4gNxqgJQhrK4sy90iVL2bgrlvt9kmqH86KHjvZn9RQkAn9amFKeJp6lhYbOD8crWvl2LwrNTzBYXYbtis3dBr1QJ7LtFP606QdKfJOJhExdGdGEnWpdlscc3fNH8q1YmPBLp9HpzjbcwvbUyhJ02PjXKhTvTfrl+cnFY4ewHkHLhCRcukAU5Iyfs2UBpp9H5dA/ES6b5nqfPpXPMQMQDehmidqr9H8srlaVRFkxyH2H+0MNpmD1uBZ+xumrdVpGgBqVVEtr8vPQqUMFfE6dMVliUQMvLSMdRkxJCXzkdpNEijT0s9vjqfEqDHdzPJW2Z6pyedLv6O+KnnB4MgL6yUIMEhunZfOZTpp6Ld/7c2b5K3/5Jk7569rI8AWIidvho1L3khuXgg5LHuIuO/Zvtk4tWpwqp/+4DXl8q43DdIlx/WCQgiY8nRM/UfhZDTwSHLfXsOSdfKMauHmtyMNJ3K6fQhMoW7PiabbFBKgNvNg/t16fVnfxZG/5zQ="
+lobby:
